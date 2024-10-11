@@ -38,8 +38,8 @@ class Player {
 
 class Obstacle {
     constructor(){
-        this.width = 30;
-        this.height = 15;
+        this.width = 20;
+        this.height = 10;
         this.positionX = 50 - this.width / 2 ;
         this.positionY = 100;
         this.domElement = null;
@@ -73,18 +73,35 @@ const player = new Player();
 
 const obstacleArr = []; // will store instances of the class Obstacle
 
+
+// create obstacles
 setInterval(() => {
     const newObstacle = new Obstacle();
     obstacleArr.push(newObstacle);
 }, 4000);
 
 
+// update all obstacles
 setInterval(() => {
     obstacleArr.forEach((obstacleInstance) => {
-        obstacleInstance.moveDown();
-    });
-}, 100);
 
+        // move current obstacle
+        obstacleInstance.moveDown();
+
+        // detect collision
+        if (
+            player.positionX < obstacleInstance.positionX + obstacleInstance.width &&
+            player.positionX + player.width > obstacleInstance.positionX &&
+            player.positionY < obstacleInstance.positionY + obstacleInstance.height &&
+            player.positionY + player.height > obstacleInstance.positionY
+        ){
+            console.log("game over");
+            location.href = "gameover.html";
+        }
+    });
+
+    
+}, 50);
 
 
 document.addEventListener('keydown', (e) => {
