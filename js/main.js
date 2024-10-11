@@ -25,12 +25,16 @@ class Player {
         board.appendChild(this.domElement);
     }
     moveRight() {
-        this.positionX++;
-        this.domElement.style.left = this.positionX + "vw";
+        if(this.positionX < 100 - this.width){
+            this.positionX++;
+            this.domElement.style.left = this.positionX + "vw";
+        }
     }
     moveLeft() {
-        this.positionX--;
-        this.domElement.style.left = this.positionX + "vw";
+        if(this.positionX > 0){
+            this.positionX--;
+            this.domElement.style.left = this.positionX + "vw";
+        }
     }
 }
 
