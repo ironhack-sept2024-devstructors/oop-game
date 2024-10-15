@@ -13,7 +13,7 @@ Move player with arrow keys :)
 
 ## Demo
 
-to-do
+[https://ironhack-sept2024-devstructors.github.io/oop-game/](https://ironhack-sept2024-devstructors.github.io/oop-game/)
 
 
 ## Further Improvements
